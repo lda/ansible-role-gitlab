@@ -40,5 +40,11 @@ nginx['listen_port'] = "{{ gitlab_nginx_listen_port }}"
 nginx['listen_https'] = "{{ gitlab_nginx_listen_https }}"
 {% endif %}
 
+# Gitlab Registry
+## See https://gitlab.com/help/administration/container_registry.md
+{% if gitlab_registry_external_url is defined %}
+registry_external_url "{{ gitlab_registry_external_url }}"
+{% endif %}
+
 # To change other settings, see:
 # https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md#changing-gitlab-yml-settings
